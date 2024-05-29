@@ -8,15 +8,15 @@ O sistema de estacionamento gerencia operações básicas de entrada de veículo
 
 ### Funcionalidades
 
-- **Envio de Mensagens**: Eventos de entrada e saída de veículos são enviados para uma fila SQS.
+- **Envio de Mensagens**: Eventos de entrada de veículos são enviados para uma fila SQS.
 - **Recebimento de Mensagens**: Os eventos na fila SQS são recebidos e processados por componentes dedicados.
 
 ### Tecnologias Utilizadas
 
-- **Java 11**
-- **Maven 3.6**
-- **AWS SDK para Java 2.x**
-- **Amazon SQS**
+- ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+- ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
+- ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+- ![SQS](https://img.shields.io/badge/AWS%20SQS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ### Estrutura do Projeto
 
