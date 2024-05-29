@@ -37,7 +37,7 @@ public class VeiculoController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))))
     public ResponseEntity<String> create(@RequestBody VeiculoDto veiculoDto)
     {
-        var result = _veiculoService.Create(veiculoDto);
+        var result = _veiculoService.CreateQueueInsert(veiculoDto);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .contentType(MediaType.APPLICATION_JSON)
