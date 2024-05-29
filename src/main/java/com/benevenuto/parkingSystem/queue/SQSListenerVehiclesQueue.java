@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.services.sqs.SqsAsyncClient;
+import software.amazon.awssdk.services.sqs.model.DeleteMessageRequest;
+import software.amazon.awssdk.services.sqs.model.Message;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageRequest;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageResponse;
 
@@ -54,11 +56,21 @@ public class SQSListenerVehiclesQueue {
 
                             _veiculoService.Insert(message);
 
+                            this.deleteMessage(msg);
                         } catch (JsonProcessingException e) {
                             throw new RuntimeException(e);
                         }
                     }
             );
         }
+    }
+
+    private void deleteMessage(Message message)
+    {
+        DeleteMessageRequest deleteMessageRequest = DeleteMessageRequest.builder()
+                .queueUrl(queueEndPoint)
+                .receiptHandle(message.receiptHandle())
+                .build();
+        this._amazonSqs.deleteMessage(deleteMessageRequest);
     }
 }
